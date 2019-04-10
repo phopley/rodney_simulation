@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /Navigation1
         - /Navigation1/Global Planning1/Path1
         - /Navigation1/Local Planning1/Path1
       Splitter Ratio: 0.743515849
@@ -242,6 +241,7 @@ Visualization Manager:
         Grid: true
         LaserScan: true
         Navigation:
+          Footprint: true
           Global Planning:
             Map: true
             Path: true
@@ -251,9 +251,9 @@ Visualization Manager:
             Path: true
             Value: true
           Map: true
-          Polygon: true
           Pose Estimation: true
           Value: true
+        Odometry: true
         RobotModel: true
         TF: true
         Value: true
@@ -275,7 +275,7 @@ Visualization Manager:
       Max Color: 255; 255; 255
       Max Intensity: 999999
       Min Color: 0; 0; 0
-      Min Intensity: 0
+      Min Intensity: 999999
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -287,6 +287,40 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Angle Tolerance: 0.100000001
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: false
+        Position:
+          Alpha: 0.300000012
+          Color: 204; 51; 204
+          Scale: 1
+          Value: false
+        Value: true
+      Enabled: true
+      Keep: 100
+      Name: Odometry
+      Position Tolerance: 0.100000001
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.100000001
+        Color: 255; 25; 0
+        Head Length: 0.300000012
+        Head Radius: 0.100000001
+        Shaft Length: 1
+        Shaft Radius: 0.0500000007
+        Value: Arrow
+      Topic: /odom
+      Unreliable: false
       Value: true
     - Class: rviz/TF
       Enabled: false
@@ -328,7 +362,7 @@ Visualization Manager:
           Axes Radius: 0.00999999978
           Class: rviz/PoseArray
           Color: 0; 170; 0
-          Enabled: false
+          Enabled: true
           Head Length: 0.0700000003
           Head Radius: 0.0299999993
           Name: Pose Estimation
@@ -337,7 +371,7 @@ Visualization Manager:
           Shape: Arrow (Flat)
           Topic: /particlecloud
           Unreliable: false
-          Value: false
+          Value: true
         - Class: rviz/Group
           Displays:
             - Alpha: 1
@@ -438,7 +472,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0.00499982294
+      Angle: -0.390001088
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
@@ -448,11 +482,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 79.2529449
+      Scale: 15.9274149
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 26.0189018
-      Y: 2.27137399
+      X: 25.5973377
+      Y: 15.3905706
     Saved: ~
 Window Geometry:
   Camera:

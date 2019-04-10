@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
-<launch>
-  <!-- Load parameters used by the Rodney code -->
-  <rosparam command="load" file="$(find rodney)/config/config.yaml" />     
-
+<launch>     
   <!-- Load the URDF model in to the parameter server from the xacro file -->
   <arg name="model" default="$(find rodney)/urdf/rodney.xacro"/>
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>    
@@ -26,15 +23,12 @@
   <arg name="rvizconfig" default="$(find rodney_simulation)/rviz/urdf.rviz"/>       
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
   
-  <!-- Launch the Rodney code that we will use in this simulation -->  
-  <node pkg="rodney" type="rodney_node" name="rodney_node" output="screen"/> 
+  <!-- Launch the Rodney code that we will use in this simulation -->   
+  <node pkg="rodney" type="rodney_node" name="rodney" output="screen">
+    <rosparam command="load" file="$(find rodney)/config/config.yaml"/> 
+  </node>
+  <node pkg="rodney" type="static_broadcaster.py" name="static_broadcaster_node"/>
   <include file="$(find rodney)/launch/remote.launch" />
-  
-  <!-- Static transform for the laser -> baselink. We need this for mapping etc -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="laser_link_broadcaster" args="0.085 0 0.107 0 0 0 /base_link /laser"/>
-  
-  <!-- The base_link -> base_footprint -->  
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_broadcaster" args="0 0 0.09 0 0 0 /base_footprint /base_link"/>
 
   <!-- Navigation -->
   <arg name="no_nav" default="false"/>  

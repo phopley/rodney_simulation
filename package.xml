@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>rodney_simulation</name>
-  <version>0.4.1</version>
+  <version>0.5.0</version>
   <description>The rodney_simulation package</description>
 
   <maintainer email="sleepyserver6@gmail.com">Philip Hopley</maintainer>

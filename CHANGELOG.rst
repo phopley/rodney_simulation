@@ -2,10 +2,10 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unreleased
+0.5.0 (2019-04-10)
 ------------------
+* Now using rodney static_broadcaster.py
 * Now using willowgarage world
-* Add launching nav stack
 
 0.4.1 (2019-03-01)
 ------------------
