@@ -2,6 +2,10 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Unreleased
+------------------
+* Added configuration and launching of the nav stack
+
 0.5.0 (2019-04-10)
 ------------------
 * Now using rodney static_broadcaster.py
