@@ -2,7 +2,7 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unreleased
+0.6.0 (2019-04-18)
 ------------------
 * Added configuration and launching of the nav stack
 
