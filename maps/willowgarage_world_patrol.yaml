@@ -1,0 +1,28 @@
+# Waypoints must start at w1 and be consecutive
+w1:
+  position:
+    x: 13.2061405182
+    y: -6.34978628159
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.712211212733
+    w: 0.701965233083
+w2:
+  position:
+    x: 16.3758583069
+    y: -6.23452758789
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.7138715106310
+    w: 0.700276706959  
+w3:
+  position:
+    x: 22.167804718
+    y: 1.14226484299
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.999983862429
+    w: -0.00568109866196       
