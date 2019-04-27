@@ -24,6 +24,8 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
   
   <rosparam command="load" file="$(find head_control)/config/common_config.yaml" />
+  <rosparam command="load" file="$(find pan_tilt)/config/common_config.yaml" />
+  <rosparam command="load" file="$(find face_recognition)/config/config.yaml"/>
   <arg name="map_file" default="willowgarage_world"/>
   
   <!-- Launch the Rodney code that we will use in this simulation -->   
@@ -36,6 +38,7 @@
   <node pkg="head_control" type="head_control_node" name="head_control_node">
     <rosparam command="load" file="$(find head_control)/config/config.yaml"/>
   </node>  
+  <node pkg="face_recognition" type="face_recognition_node.py" name="face_recognition_node"/>
   <node pkg="rodney" type="static_broadcaster.py" name="static_broadcaster_node"/>
   <include file="$(find rodney)/launch/remote.launch" />
   

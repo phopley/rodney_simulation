@@ -18,13 +18,39 @@ import sys
 import rospy
 from pi_io.srv import gpio_output
 from std_srvs.srv import Empty
+from sensor_msgs.msg import JointState
+from trajectory_msgs.msg import JointTrajectory
+from trajectory_msgs.msg import JointTrajectoryPoint
 
 class SimNode:
-    def __init__(self):        
+    def __init__(self):
+        # service that will expect to be running        
         self.__gpio_service = rospy.Service('gpio/output_cmd', gpio_output, self.OutputCommand) 
         self.__stop_motor_service = rospy.Service('stop_motor', Empty, self.StopCommand)
         self.__start_motor_service = rospy.Service('start_motor', Empty, self.StartCommand)
+        
+        # Accept a pan_tilt_node/joints message and turn it into a 
+        # head_controller/command message so that the head moves in Gazebo
+        self.__pan_tilt_sub = rospy.Subscriber('pan_tilt_node/joints', JointState, self.PanTiltCallback)
+        self.__head_control_pub_ = rospy.Publisher('head_controller/command', JointTrajectory, queue_size=1)
+        
 
+    # Callback for head joints message
+    def PanTiltCallback(self, msg):        
+        
+        jt = JointTrajectory()
+     
+        jt.joint_names = ["head_pan", "head_tilt"]
+    
+        point = JointTrajectoryPoint()
+        
+        # We could read the names of the joints but we know that pan is in [0] and tilt in [1]
+        point.positions = [msg.position[0], msg.position[1]]
+        point.time_from_start.secs = 1
+        jt.points = [point]
+                
+        self.__head_control_pub_.publish(jt)
+    
     def OutputCommand(self, request):
         # Just return True        
         return True

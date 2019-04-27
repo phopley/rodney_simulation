@@ -4,7 +4,7 @@ Changelog for package rodney_sim_control
 
 Unreleased
 ------------------
-* Changes so that simulation can run mission 1
+* Changes so that simulation can run mission 1,2 and 4
 
 0.6.0 (2019-04-18)
 ------------------

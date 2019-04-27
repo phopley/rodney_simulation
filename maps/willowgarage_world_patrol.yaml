@@ -1,4 +1,5 @@
 # Waypoints must start at w1 and be consecutive
+# Also have an home location
 w1:
   position:
     x: 13.2061405182
@@ -25,4 +26,13 @@ w3:
     x: 0.0
     y: 0.0
     z: 0.999983862429
-    w: -0.00568109866196       
+    w: -0.00568109866196 
+home:
+  position:
+    x: 7.0
+    y: -7.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
