@@ -2,6 +2,10 @@
 Changelog for package rodney_sim_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Unreleased
+------------------
+* Added web control to launch file
+
 0.7.0 (2019-05-02)
 ------------------
 * Changes so that simulation can run mission 1,2 and 4

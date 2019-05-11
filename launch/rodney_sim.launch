@@ -40,7 +40,18 @@
   </node>  
   <node pkg="face_recognition" type="face_recognition_node.py" name="face_recognition_node"/>
   <node pkg="rodney" type="static_broadcaster.py" name="static_broadcaster_node"/>
-  <include file="$(find rodney)/launch/remote.launch" />
+    
+  <!-- Launch method for remote control -->
+  <arg name="web_control" default="false"/>
+  <group if="$(arg web_control)">
+    <!-- Remote using web browser. The bridge could be launched anyway but just not used -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+    <node pkg="rqt_console" type="rqt_console" name="rqt_console"/> 
+  </group>
+  <group unless="$(arg web_control)">
+    <!-- Remote using keyboard and joystick -->
+    <include file="$(find rodney)/launch/remote.launch"/>    
+  </group>  
   
   <!-- rodney and rodney_missions wait on a number of services tobecome available so we need to simulate them -->
   <node pkg="rodney_simulation" type="simulation_node.py" name="simulation_node"/>
@@ -60,7 +71,7 @@
       <rosparam command="load" file="$(find rodney)/config/local_costmap_params.yaml"/>      
       <remap from="cmd_vel" to="demand_vel"/>
     </node>   
-  </group>  
+  </group>     
 
 </launch>
 
