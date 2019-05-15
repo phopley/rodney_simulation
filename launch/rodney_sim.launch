@@ -51,7 +51,10 @@
   <group unless="$(arg web_control)">
     <!-- Remote using keyboard and joystick -->
     <include file="$(find rodney)/launch/remote.launch"/>    
-  </group>  
+  </group>
+  
+  <!-- Uncomment to include the launching of the video server -->
+  <!-- <node pkg="web_video_server" type="web_video_server" name="web_video_server"/> -->   
   
   <!-- rodney and rodney_missions wait on a number of services tobecome available so we need to simulate them -->
   <node pkg="rodney_simulation" type="simulation_node.py" name="simulation_node"/>
